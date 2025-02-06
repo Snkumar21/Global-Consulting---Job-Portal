@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* Basic CSS for layout and style */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar Styling */
+        nav {
+            background-color: #111;
+            display: flex;
+            justify-content: space-between;
+            padding: 25px;
+            align-items: center;
+        }
+
+        .logo-name {
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .logo-name:hover {
+            color: #ffcc00;
+            text-decoration: underline 1px solid #fff;
+            text-underline-offset: 5px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        ul li {
+            margin: 0 15px;
+            margin-left: 30px;
+        }
+
+        ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            margin-right: 30px;
+        }
+
+        ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Resume Field Section */
+
+        section.profile {
+            background-color: #fff;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile h2 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .profile p {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #0091ff;
+            color: #fff;
+            font-size: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0078d4;
+        }
+
+        /* Styling for the generated resume in the new tab */
+        .resume-content {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .resume-content h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .resume-content h2 {
+            color: #444;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .resume-content p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo-name">Global Consulting</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <section class="profile">
+        <h2>User Profile</h2>
+        <p>Enter Your Details To Generate Resume</p>
+    
+        <form id="resumeForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+    
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required><br>
+    
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Enter your address" required><br>
+    
+            <label for="summary">Professional Summary:</label>
+            <textarea id="summary" name="summary" placeholder="Write a short professional summary" rows="4" required></textarea><br>
+    
+            <label for="education">Education:</label>
+            <textarea id="education" name="education" placeholder="Enter your educational background" rows="4" required></textarea><br>
+    
+            <label for="experience">Work Experience:</label>
+            <textarea id="experience" name="experience" placeholder="Enter your work experience" rows="4" required></textarea><br>
+    
+            <label for="skills">Skills:</label>
+            <textarea id="skills" name="skills" placeholder="List your skills" rows="3" required></textarea><br>
+    
+            <label for="projects">Projects:</label>
+            <textarea id="projects" name="projects" placeholder="Describe your key projects" rows="4"></textarea><br>
+    
+            <label for="languages">Languages Known:</label>
+            <input type="text" id="languages" name="languages" placeholder="Enter languages you speak" required><br>
+    
+            <label for="references">References:</label>
+            <textarea id="references" name="references" placeholder="List references with contact details" rows="3"></textarea><br>
+    
+            <button type="submit">Generate Resume</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Global Consulting. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('resumeForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+    
+            // Get form data
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const summary = document.getElementById('summary').value;
+            const education = document.getElementById('education').value;
+            const experience = document.getElementById('experience').value;
+            const skills = document.getElementById('skills').value;
+            const projects = document.getElementById('projects').value;
+            const languages = document.getElementById('languages').value;
+            const references = document.getElementById('references').value;
+    
+            // Create new tab and write the resume details
+            const resumeWindow = window.open('', '_blank');
+            resumeWindow.document.write('<html><head><title>Resume</title></head><body>');
+            resumeWindow.document.write(`<h1>${fullName}'s Resume</h1>`);
+            resumeWindow.document.write(`<p><strong>Email:</strong> ${email}</p>`);
+            resumeWindow.document.write(`<p><strong>Phone:</strong> ${phone}</p>`);
+            resumeWindow.document.write(`<p><strong>Address:</strong> ${address}</p>`);
+            resumeWindow.document.write(`<h2>Professional Summary</h2><p>${summary}</p>`);
+            resumeWindow.document.write(`<h2>Education</h2><p>${education}</p>`);
+            resumeWindow.document.write(`<h2>Work Experience</h2><p>${experience}</p>`);
+            resumeWindow.document.write(`<h2>Skills</h2><p>${skills}</p>`);
+            resumeWindow.document.write(`<h2>Projects</h2><p>${projects}</p>`);
+            resumeWindow.document.write(`<h2>Languages Known</h2><p>${languages}</p>`);
+            resumeWindow.document.write(`<h2>References</h2><p>${references}</p>`);
+            resumeWindow.document.write('</body></html>');
+            resumeWindow.document.close();
+        });
+    </script>
+</body>
+</html>

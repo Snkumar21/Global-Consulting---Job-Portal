@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Consulting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Basic CSS for layout and style */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./Img/pngtree-blue-background-high-resolution-hd-wallpaper-free-image_1686273.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Navigation Bar Styling */
+        nav {
+            background-color: #111;
+            display: flex;
+            justify-content: space-between;
+            padding: 25px;
+            align-items: center;
+        }
+
+        .logo-name {
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .logo-name:hover{
+            color: #ffcc00;
+            text-decoration: underline 1px solid #fff;
+            text-underline-offset: 5px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        ul li {
+            margin: 0 15px;
+            margin-left: 30px;
+        }
+
+        ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            margin-right: 30px;
+        }
+
+        ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Login Section */
+        .log {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #eeeded;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            margin: 5% auto;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-container input {
+            width: 80%;
+            padding: 10px 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-container input:focus {
+            border-color: #145cda;
+            outline: none;
+        }
+
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+        }
+
+        .remember-forgot-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-forgot-container a {
+            text-decoration: none;
+            color: #2575fc;
+            font-size: 14px;
+        }
+
+        .remember-forgot-container a:hover {
+            text-decoration: underline;
+        }
+
+        .login-submit {
+            background-color: #2575fc;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .login-submit:hover {
+            background-color: #1a5cb8;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        h2 a {
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        h2 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo-name">Global Consulting</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <section class="log">
+        <div class="content">
+            <h1>Login</h1>
+            <br><br>
+            <form action="/loginform" class="loginform" id="loginform" method="post">
+                <div class="input-container">
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <br>
+                <div class="input-container">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <br>
+                <div class="remember-forgot-container">
+                    <input type="checkbox" name="remember" id="remember">
+                    <label for="remember" style="margin-left: -40%;">Remember Me</label>
+                    <a href="#" class="forgot">Forgot Password?</a>
+                </div>
+                <br>
+                <button type="submit" class="login-submit">Login</button>
+                <br>
+                <h2>Don't have an account? <a href="register.html">Register</a></h2>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Global Consulting. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("loginform");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+    
+            // Make a POST request to your server
+            fetch("/loginform", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                alert("Login Successfully");
+                window.location.href = "/index";
+                } else {
+                alert("Error: " + data.message);
+                }
+            })
+            .catch((error) => console.error("Error:", error));
+        });
+        });
+    </script>
+
+</body>
+</html>

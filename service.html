@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Consulting</title>
+    <style>
+        /* Basic CSS for layout and style */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar Styling */
+        nav {
+            background-color: #111;
+            display: flex;
+            justify-content: space-between;
+            padding: 25px;
+            align-items: center;
+        }
+
+        .logo-name {
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .logo-name:hover {
+            color: #ffcc00;
+            text-decoration: underline 1px solid #fff;
+            text-underline-offset: 5px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        ul li {
+            margin: 0 15px;
+            margin-left: 30px;
+        }
+
+        ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            margin-right: 30px;
+        }
+
+        ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Search-Bar */
+        .search_bar {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            gap: 20px;
+            background-color: #0091ff;
+        }
+
+        .search_bar h2 {
+            cursor: pointer;
+            font-size: 35px;
+        }
+
+        .search_bar input {
+            width: 30%;
+            height: 30px;
+            padding-top: 10px;
+            padding-left: 30px;
+            padding-bottom: 10px;
+            font-size: 17px;
+            background-color: #fff;
+            border: none;
+            border: 1px solid #000;
+            border-radius: 30px;
+        }
+
+        .search_bar input::placeholder {
+            color: #555;
+        }
+
+        .search_bar button {
+            width: 10%;
+            padding: 15px;
+            border-radius: 30px;
+            border: none;
+            border: 1px solid #000;
+            font-size: 17px;
+            background-color: #0015ff;
+            color: #fff;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .search_bar button:hover {
+            background-color: #fff;
+            border: 1px solid #0015ff;
+            color: #000;
+        }
+
+        .apply-btn {
+            display: block;
+            margin: 0 auto !important;
+            background-color: #0015ff !important;
+            color: white !important;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            width: 200px !important;
+            height: 50px;
+        }
+
+        .apply-btn:hover {
+            background-color: #007bff !important;
+        }
+
+        .display_profile{
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            width: 30%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        /* Post Section */
+        .post-section {
+            text-align: center;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        .post-section h2 {
+            font-size: 35px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .post-section form {
+            display: inline-block;
+            width: 30%;
+            text-align: left;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-section label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .post-section input{
+            width: 95%;
+            padding: 10px;
+            padding-right: -50px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .post-section select{
+            width: 100%;
+            padding: 10px;
+            padding-right: -50px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .post-section button {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: #0091ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .post-section button:hover {
+            background-color: #007bff;
+        }
+
+        /* User Details*/
+        .resume_builder{
+            text-align: center;
+        }
+
+        .resume_builder a{
+            text-decoration: none;
+            color: #0015ff;
+        }
+
+        .resume_builder a:hover{
+            color: #000;
+            text-decoration: underline solid blue;
+        }
+
+        /* Review Post */
+        .review {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .review h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .review input, .review textarea{
+            width: 98.5%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .review select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .review button {
+            padding: 10px 20px;
+            background-color: #0015ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 auto;
+        }
+
+        .review button:hover {
+            background-color: #007bff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo-name">Global Consulting</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Search-Bar Section -->
+    <!-- Post Section -->
+    <section class="search_bar">
+        <h2>Search Your Job Profile</h2>
+        
+        <input type="text" name="searchBar" id="searchBar" placeholder="Enter your job role..."><br>
+        <button onclick="searchProperties()">Search</button>
+    
+        <div class="display_profile" id="display_profile">
+            <!-- Job details will be shown here -->
+        </div>
+    </section>
+    <section id="post_section" class="post-section">
+        <h2>Post a New Job</h2>
+        <form id="postJobForm">
+            <label for="jobRole">Job Role:</label>
+            <input type="text" id="jobRole" name="jobRole" placeholder="Enter job role" required><br>
+            
+            <label for="consultingService">Add Consulting Interview:</label>
+            <select id="consultingService" name="consultingService">
+                <option value="" disabled selected>Select Your Option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+
+            <label for="Salary">Salary:</label>
+            <input type="text" name="Salary" id="Salary" placeholder="Salary Details" required><br>
+
+            <label for="type">Type:</label>
+            <select name="type" id="type">
+                <option value="" disabled selected>Select Your Option</option>
+                <option value="wfh">Work From Home</option>
+                <option value="hybrid">Hybrid</option>
+                <option value="onsite">Onsite</option>
+                <option value="temporary">Temporary Jobs</option>
+                <option value="part-time">Part-time</option>
+            </select><br>
+
+            <label for="place">Place:</label>
+            <input type="text" name="place" id="place" placeholder="Location Details" required><br>
+    
+            <button type="submit">Post Job</button>
+        </form>
+    </section>    
+
+    <section class="resume_builder">
+        <h2>Build a Resume <a href="./resume_builder.html">Here!</a></h2>
+    </section>
+
+    <section class="review">
+        <h2>Submit Your Review</h2>
+        <form id="reviewForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+    
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Write your review here..." required></textarea><br>
+    
+            <label for="rating">Rating (out of 5):</label>
+            <select id="rating" name="rating" required>
+                <option value="" disabled selected>Select a rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+    
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>    
+
+    <footer>
+        <p>&copy; 2024 Global Consulting. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to simulate search functionality
+        function searchProperties() {
+            const searchBarValue = document.getElementById('searchBar').value;
+
+            fetch(`/searchJob?jobRole=${searchBarValue}`)
+                .then(response => response.json())
+                .then(data => {
+                    const displayProfile = document.getElementById('display_profile');
+                    displayProfile.innerHTML = '';
+
+                    if (data.success) {
+                        data.jobs.forEach(job => {
+                            // Create a div to hold the job details
+                            const jobDiv = document.createElement('div');
+                            jobDiv.classList.add('job-details');
+                            
+                            // Add job role
+                            const role = document.createElement('h3');
+                            role.textContent = `Job Role: ${job.job_role}`;
+                            jobDiv.appendChild(role);
+
+                            // Add salary details
+                            const salary = document.createElement('p');
+                            salary.textContent = `Salary: ${job.salary}`;
+                            jobDiv.appendChild(salary);
+
+                            // Add job type (e.g., WFH, Hybrid)
+                            const jobType = document.createElement('p');
+                            jobType.textContent = `Job Type: ${job.type}`;
+                            jobDiv.appendChild(jobType);
+
+                            // Add consulting service option
+                            const consulting = document.createElement('p');
+                            consulting.textContent = `Consulting Interview: ${job.consulting_service === 'yes' ? 'Yes' : 'No'}`;
+                            jobDiv.appendChild(consulting);
+
+                            // Add job location
+                            const location = document.createElement('p');
+                            location.textContent = `Location: ${job.place}`;
+                            jobDiv.appendChild(location);
+
+                            // Add Apply button
+                            const applyButton = document.createElement('button');
+                            applyButton.textContent = 'Apply for this job';
+                            applyButton.classList.add('apply-btn');
+                            applyButton.addEventListener('click', function() {
+                                applyForJob(job.job_role);  // Call apply function on click
+                            });
+                            jobDiv.appendChild(applyButton);
+
+                            // Append the jobDiv to the displayProfile div
+                            displayProfile.appendChild(jobDiv);
+                        });
+                    } else {
+                        displayProfile.textContent = data.message;  // Show message if no jobs are found
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching job details:', error);
+                });
+        }
+
+        // Function to handle the Apply button click and show a success message
+        function applyForJob(jobRole) {
+            alert(`The Request to apply for the job "${jobRole}" is sent successfully.`);
+        }
+
+        // Function to handle job post submission
+        document.getElementById('postJobForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Collect form data
+            const formData = {
+                jobRole: document.getElementById('jobRole').value,
+                consultingService: document.getElementById('consultingService').value,
+                Salary: document.getElementById('Salary').value,
+                type: document.getElementById('type').value,
+                place: document.getElementById('place').value
+            };
+
+            // Send data to the server
+            fetch('/postJob', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message); // Notify the user of success
+                } else {
+                    alert('Error: ' + data.message); // Handle error
+                }
+            })
+            .catch(error => {
+                console.error('Error posting job:', error);
+            });
+        });
+
+        //Review Post Function
+        document.getElementById('reviewForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent normal form submission
+
+            const reviewData = {
+                name: document.getElementById('name').value,
+                message: document.getElementById('message').value,
+                rating: document.getElementById('rating').value
+            };
+
+            // Send review data to the server
+            fetch('http://localhost:3001/submitReview', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(reviewData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Thank you for your review!');
+                    document.getElementById('reviewForm').reset();  // Reset the form
+                } else {
+                    alert('Error submitting review: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting review:', error);
+            });
+        });
+    </script>    
+</body>
+</html>
